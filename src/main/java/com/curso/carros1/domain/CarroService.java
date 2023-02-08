@@ -33,4 +33,8 @@ public class CarroService {
 
         return carros;
     }
+
+    public Carro save(Carro carro) {
+        return rep.save(carro);
+    }
 }

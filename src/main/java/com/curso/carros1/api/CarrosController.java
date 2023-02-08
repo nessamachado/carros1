@@ -5,7 +5,6 @@ import com.curso.carros1.domain.CarroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -28,6 +27,14 @@ public class CarrosController {
     @GetMapping("/tipo/{tipo}")
     public Iterable<Carro> getCarrosByTipo(@PathVariable("tipo") String tipo){
         return service.getCarroByTipo(tipo);
+    }
+
+    @PostMapping
+    public String post(@RequestBody Carro carro){
+        Carro c = service.save(carro);
+
+        return"Carro salvo com sucesso: " + c.getId();
+
     }
 
 
